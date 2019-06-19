@@ -6,12 +6,16 @@ import java.util.List;
 
 import io.swagger.annotations.ApiOperation;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 @RestController
 public class GreetingController {
+
+  private static final Logger LOG = LoggerFactory.getLogger(GreetingController.class);
 
     private static final String template = "Hello, %s! Are you feeling %s?";
     private final Counter counter;
@@ -27,6 +31,9 @@ public class GreetingController {
     @ApiOperation(value = "Generate a greeting for a given name")
     public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
         counter.increment();
+
+        LOG.info("Sending a greeting out to {} in {}", name, colour);
+
         return new Greeting((int)counter.count(),
                             String.format(template, name, colour));
     }
