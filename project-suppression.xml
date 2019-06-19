@@ -12,4 +12,10 @@
 	   ]]></notes>
         <cpe>cpe:/a:springsource:spring_framework:1.2.0</cpe>
     </suppress>
+    <suppress until="2020-01-01Z">
+        <notes><![CDATA[
+        This suppresses a specific cve for any dependency in any directory that has the specified sha1 checksum. If current date is not yet on or beyond 1 Jan 2020.
+        ]]></notes>
+        <cve>CVE-2018-1067</cve>
+    </suppress>
 </suppressions>
