@@ -68,12 +68,12 @@
         </dependency>
 
         <!-- Addresses CVE-2019-12086 -->
-        
+        <!--
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.9.9</version>
-        </dependency>
+        </dependency>-->
         
 
         <!-- There's a bunch of CVE's associated with this version 
