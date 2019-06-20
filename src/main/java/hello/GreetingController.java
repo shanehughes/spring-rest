@@ -15,9 +15,10 @@ import org.springframework.web.servlet.view.RedirectView;
 @RestController
 public class GreetingController {
 
-  private static final Logger LOG = LoggerFactory.getLogger(GreetingController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(GreetingController.class);
 
     private static final String template = "Hello, %s! Are you feeling %s?";
+
     private final Counter counter;
 
     @Value(value = "${COLOUR:orange}")
@@ -32,7 +33,7 @@ public class GreetingController {
     public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
         counter.increment();
 
-        LOG.info("Sending a greeting out to {} in {}", name, colour);
+        LOG.info("Sending a greeting out to '{}', hope they're {}...", name, colour);
 
         return new Greeting((int)counter.count(),
                             String.format(template, name, colour));
@@ -42,7 +43,6 @@ public class GreetingController {
     public String index() {
         return "Success!";
     }
-
 
     @RequestMapping(value = "/v1/hostinfo",  method = RequestMethod.GET)
     @ApiOperation(value = "List host name running the sample application.")
@@ -54,6 +54,5 @@ public class GreetingController {
     @ApiOperation(value = "Display environment variables.")
     public EnvInfo envinfo(@RequestParam(value="filter", defaultValue="*") String filter) throws IOException {
       return new EnvInfo(filter);
-    }
-    
+    }   
 }
