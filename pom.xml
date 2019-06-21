@@ -74,12 +74,12 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.9.9</version>
         </dependency>-->
-        
 
-        <!-- There's a bunch of CVE's associated with this version 
-             unfortunately, they're not all fixed yet, so we've added a
-             suppression for now in project-suppression.xml until the end
-             of the year against CVE-2018-1067 -->
+        <!-- There's a bunch of potential CVE's associated with this 
+             undertow release. They're not necessarily _in_ this version,
+             triage is still underway so we've added a suppression for 
+             now in project-suppression.xml until the end of the year 
+             against CVE-2018-1067 -->
         <dependency>
             <groupId>io.undertow</groupId>
             <artifactId>undertow-core</artifactId>
